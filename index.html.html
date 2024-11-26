@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador com Nome Personalizado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .contador {
+            font-size: 40px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="nome" placeholder="Digite seu nome" />
+    <div class="contador" id="contador">Digite seu nome acima</div>
+    <button id="botao">Alterar Número</button>
+
+    <script>
+        let numero = 1;
+        const nomeInput = document.getElementById('nome');
+        const contadorElement = document.getElementById('contador');
+        const botaoElement = document.getElementById('botao');
+
+        // Função para atualizar o contador com o nome e número
+        function alterarNumero() {
+            const nome = nomeInput.value.trim();
+            if (nome) {
+                contadorElement.textContent = `${nome} ${numero}`;
+                numero++;
+            } else {
+                contadorElement.textContent = 'Digite seu nome acima';
+            }
+        }
+
+        // Adicionando evento de clique ao botão
+        botaoElement.addEventListener('click', alterarNumero);
+    </script>
+</body>
+</html>
